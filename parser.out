@@ -1,0 +1,256 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> s
+Rule 1     s -> e
+Rule 2     e -> e MAS t
+Rule 3     e -> e MENOS t
+Rule 4     e -> t
+Rule 5     t -> t POR f
+Rule 6     t -> t DIVIDIDO f
+Rule 7     t -> f
+Rule 8     f -> ID
+Rule 9     f -> PARIZQ e PARDER
+
+Terminals, with rules where they appear
+
+DIVIDIDO             : 6
+ID                   : 8
+MAS                  : 2
+MENOS                : 3
+PARDER               : 9
+PARIZQ               : 9
+POR                  : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+e                    : 1 2 3 9
+f                    : 5 6 7
+s                    : 0
+t                    : 2 3 4 5 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . s
+    (1) s -> . e
+    (2) e -> . e MAS t
+    (3) e -> . e MENOS t
+    (4) e -> . t
+    (5) t -> . t POR f
+    (6) t -> . t DIVIDIDO f
+    (7) t -> . f
+    (8) f -> . ID
+    (9) f -> . PARIZQ e PARDER
+
+    ID              shift and go to state 5
+    PARIZQ          shift and go to state 6
+
+    s                              shift and go to state 1
+    e                              shift and go to state 2
+    t                              shift and go to state 3
+    f                              shift and go to state 4
+
+state 1
+
+    (0) S' -> s .
+
+
+
+state 2
+
+    (1) s -> e .
+    (2) e -> e . MAS t
+    (3) e -> e . MENOS t
+
+    $end            reduce using rule 1 (s -> e .)
+    MAS             shift and go to state 7
+    MENOS           shift and go to state 8
+
+
+state 3
+
+    (4) e -> t .
+    (5) t -> t . POR f
+    (6) t -> t . DIVIDIDO f
+
+    MAS             reduce using rule 4 (e -> t .)
+    MENOS           reduce using rule 4 (e -> t .)
+    $end            reduce using rule 4 (e -> t .)
+    PARDER          reduce using rule 4 (e -> t .)
+    POR             shift and go to state 9
+    DIVIDIDO        shift and go to state 10
+
+
+state 4
+
+    (7) t -> f .
+
+    POR             reduce using rule 7 (t -> f .)
+    DIVIDIDO        reduce using rule 7 (t -> f .)
+    MAS             reduce using rule 7 (t -> f .)
+    MENOS           reduce using rule 7 (t -> f .)
+    $end            reduce using rule 7 (t -> f .)
+    PARDER          reduce using rule 7 (t -> f .)
+
+
+state 5
+
+    (8) f -> ID .
+
+    POR             reduce using rule 8 (f -> ID .)
+    DIVIDIDO        reduce using rule 8 (f -> ID .)
+    MAS             reduce using rule 8 (f -> ID .)
+    MENOS           reduce using rule 8 (f -> ID .)
+    $end            reduce using rule 8 (f -> ID .)
+    PARDER          reduce using rule 8 (f -> ID .)
+
+
+state 6
+
+    (9) f -> PARIZQ . e PARDER
+    (2) e -> . e MAS t
+    (3) e -> . e MENOS t
+    (4) e -> . t
+    (5) t -> . t POR f
+    (6) t -> . t DIVIDIDO f
+    (7) t -> . f
+    (8) f -> . ID
+    (9) f -> . PARIZQ e PARDER
+
+    ID              shift and go to state 5
+    PARIZQ          shift and go to state 6
+
+    e                              shift and go to state 11
+    t                              shift and go to state 3
+    f                              shift and go to state 4
+
+state 7
+
+    (2) e -> e MAS . t
+    (5) t -> . t POR f
+    (6) t -> . t DIVIDIDO f
+    (7) t -> . f
+    (8) f -> . ID
+    (9) f -> . PARIZQ e PARDER
+
+    ID              shift and go to state 5
+    PARIZQ          shift and go to state 6
+
+    t                              shift and go to state 12
+    f                              shift and go to state 4
+
+state 8
+
+    (3) e -> e MENOS . t
+    (5) t -> . t POR f
+    (6) t -> . t DIVIDIDO f
+    (7) t -> . f
+    (8) f -> . ID
+    (9) f -> . PARIZQ e PARDER
+
+    ID              shift and go to state 5
+    PARIZQ          shift and go to state 6
+
+    t                              shift and go to state 13
+    f                              shift and go to state 4
+
+state 9
+
+    (5) t -> t POR . f
+    (8) f -> . ID
+    (9) f -> . PARIZQ e PARDER
+
+    ID              shift and go to state 5
+    PARIZQ          shift and go to state 6
+
+    f                              shift and go to state 14
+
+state 10
+
+    (6) t -> t DIVIDIDO . f
+    (8) f -> . ID
+    (9) f -> . PARIZQ e PARDER
+
+    ID              shift and go to state 5
+    PARIZQ          shift and go to state 6
+
+    f                              shift and go to state 15
+
+state 11
+
+    (9) f -> PARIZQ e . PARDER
+    (2) e -> e . MAS t
+    (3) e -> e . MENOS t
+
+    PARDER          shift and go to state 16
+    MAS             shift and go to state 7
+    MENOS           shift and go to state 8
+
+
+state 12
+
+    (2) e -> e MAS t .
+    (5) t -> t . POR f
+    (6) t -> t . DIVIDIDO f
+
+    MAS             reduce using rule 2 (e -> e MAS t .)
+    MENOS           reduce using rule 2 (e -> e MAS t .)
+    $end            reduce using rule 2 (e -> e MAS t .)
+    PARDER          reduce using rule 2 (e -> e MAS t .)
+    POR             shift and go to state 9
+    DIVIDIDO        shift and go to state 10
+
+
+state 13
+
+    (3) e -> e MENOS t .
+    (5) t -> t . POR f
+    (6) t -> t . DIVIDIDO f
+
+    MAS             reduce using rule 3 (e -> e MENOS t .)
+    MENOS           reduce using rule 3 (e -> e MENOS t .)
+    $end            reduce using rule 3 (e -> e MENOS t .)
+    PARDER          reduce using rule 3 (e -> e MENOS t .)
+    POR             shift and go to state 9
+    DIVIDIDO        shift and go to state 10
+
+
+state 14
+
+    (5) t -> t POR f .
+
+    POR             reduce using rule 5 (t -> t POR f .)
+    DIVIDIDO        reduce using rule 5 (t -> t POR f .)
+    MAS             reduce using rule 5 (t -> t POR f .)
+    MENOS           reduce using rule 5 (t -> t POR f .)
+    $end            reduce using rule 5 (t -> t POR f .)
+    PARDER          reduce using rule 5 (t -> t POR f .)
+
+
+state 15
+
+    (6) t -> t DIVIDIDO f .
+
+    POR             reduce using rule 6 (t -> t DIVIDIDO f .)
+    DIVIDIDO        reduce using rule 6 (t -> t DIVIDIDO f .)
+    MAS             reduce using rule 6 (t -> t DIVIDIDO f .)
+    MENOS           reduce using rule 6 (t -> t DIVIDIDO f .)
+    $end            reduce using rule 6 (t -> t DIVIDIDO f .)
+    PARDER          reduce using rule 6 (t -> t DIVIDIDO f .)
+
+
+state 16
+
+    (9) f -> PARIZQ e PARDER .
+
+    POR             reduce using rule 9 (f -> PARIZQ e PARDER .)
+    DIVIDIDO        reduce using rule 9 (f -> PARIZQ e PARDER .)
+    MAS             reduce using rule 9 (f -> PARIZQ e PARDER .)
+    MENOS           reduce using rule 9 (f -> PARIZQ e PARDER .)
+    $end            reduce using rule 9 (f -> PARIZQ e PARDER .)
+    PARDER          reduce using rule 9 (f -> PARIZQ e PARDER .)
+
