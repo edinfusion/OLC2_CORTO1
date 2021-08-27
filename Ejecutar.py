@@ -35,3 +35,8 @@ count=0
 ast = g.sintactico("a+b*c*d*f+(a-b)/(a/f)")
 tmps, c3d = RecorrerArbol(ast)
 print(c3d)
+
+count=0
+ast = g.sintactico("f+g+c*(a+b)")
+tmps, c3d = RecorrerArbol(ast)
+print(c3d)
