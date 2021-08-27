@@ -14,4 +14,4 @@
 ### f ->  PARIZQ e PARDER
 
 ### CAPTURAS DE ENTRADA Y SALIDA:
-![CAPTURA DE FUNCIONAMIENTO](ubicacion_de_la_imagen){width=width height=height}
+![CAPTURA DE FUNCIONAMIENTO](imghttps://github.com/edinfusion/OLC2_CORTO1/blob/master/img/Captura.JPG){width='100px'}
