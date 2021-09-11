@@ -1,0 +1,926 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    RFALSE
+    RTRUE
+
+Grammar
+
+Rule 0     S' -> s
+Rule 1     s -> p
+Rule 2     p -> p OR l
+Rule 3     p -> l
+Rule 4     l -> l AND n
+Rule 5     l -> n
+Rule 6     n -> NOT k
+Rule 7     n -> k
+Rule 8     k -> e MAYOR e
+Rule 9     k -> e MENOR e
+Rule 10    k -> e MAYORIGUAL e
+Rule 11    k -> e MENORIGUAL e
+Rule 12    k -> e IGUAL e
+Rule 13    k -> e DIFERENTE e
+Rule 14    k -> e
+Rule 15    e -> e MAS e
+Rule 16    e -> e MENOS e
+Rule 17    e -> e POR e
+Rule 18    e -> e DIVIDIDO e
+Rule 19    e -> MENOS e
+Rule 20    e -> ID
+Rule 21    e -> ENTERO
+Rule 22    e -> DECIMAL
+Rule 23    e -> PARIZQ p PARDER
+
+Terminals, with rules where they appear
+
+AND                  : 4
+DECIMAL              : 22
+DIFERENTE            : 13
+DIVIDIDO             : 18
+ENTERO               : 21
+ID                   : 20
+IGUAL                : 12
+MAS                  : 15
+MAYOR                : 8
+MAYORIGUAL           : 10
+MENOR                : 9
+MENORIGUAL           : 11
+MENOS                : 16 19
+NOT                  : 6
+OR                   : 2
+PARDER               : 23
+PARIZQ               : 23
+POR                  : 17
+RFALSE               : 
+RTRUE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+e                    : 8 8 9 9 10 10 11 11 12 12 13 13 14 15 15 16 16 17 17 18 18 19
+k                    : 6 7
+l                    : 2 3 4
+n                    : 4 5
+p                    : 1 2 23
+s                    : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . s
+    (1) s -> . p
+    (2) p -> . p OR l
+    (3) p -> . l
+    (4) l -> . l AND n
+    (5) l -> . n
+    (6) n -> . NOT k
+    (7) n -> . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    NOT             shift and go to state 5
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    s                              shift and go to state 1
+    p                              shift and go to state 2
+    l                              shift and go to state 3
+    n                              shift and go to state 4
+    k                              shift and go to state 6
+    e                              shift and go to state 7
+
+state 1
+
+    (0) S' -> s .
+
+
+
+state 2
+
+    (1) s -> p .
+    (2) p -> p . OR l
+
+    $end            reduce using rule 1 (s -> p .)
+    OR              shift and go to state 13
+
+
+state 3
+
+    (3) p -> l .
+    (4) l -> l . AND n
+
+    OR              reduce using rule 3 (p -> l .)
+    $end            reduce using rule 3 (p -> l .)
+    PARDER          reduce using rule 3 (p -> l .)
+    AND             shift and go to state 14
+
+
+state 4
+
+    (5) l -> n .
+
+    AND             reduce using rule 5 (l -> n .)
+    OR              reduce using rule 5 (l -> n .)
+    $end            reduce using rule 5 (l -> n .)
+    PARDER          reduce using rule 5 (l -> n .)
+
+
+state 5
+
+    (6) n -> NOT . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    k                              shift and go to state 15
+    e                              shift and go to state 7
+
+state 6
+
+    (7) n -> k .
+
+    AND             reduce using rule 7 (n -> k .)
+    OR              reduce using rule 7 (n -> k .)
+    $end            reduce using rule 7 (n -> k .)
+    PARDER          reduce using rule 7 (n -> k .)
+
+
+state 7
+
+    (8) k -> e . MAYOR e
+    (9) k -> e . MENOR e
+    (10) k -> e . MAYORIGUAL e
+    (11) k -> e . MENORIGUAL e
+    (12) k -> e . IGUAL e
+    (13) k -> e . DIFERENTE e
+    (14) k -> e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    MAYOR           shift and go to state 16
+    MENOR           shift and go to state 17
+    MAYORIGUAL      shift and go to state 18
+    MENORIGUAL      shift and go to state 19
+    IGUAL           shift and go to state 20
+    DIFERENTE       shift and go to state 21
+    AND             reduce using rule 14 (k -> e .)
+    OR              reduce using rule 14 (k -> e .)
+    $end            reduce using rule 14 (k -> e .)
+    PARDER          reduce using rule 14 (k -> e .)
+    MAS             shift and go to state 22
+    MENOS           shift and go to state 23
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+
+state 8
+
+    (19) e -> MENOS . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 26
+
+state 9
+
+    (20) e -> ID .
+
+    MAYOR           reduce using rule 20 (e -> ID .)
+    MENOR           reduce using rule 20 (e -> ID .)
+    MAYORIGUAL      reduce using rule 20 (e -> ID .)
+    MENORIGUAL      reduce using rule 20 (e -> ID .)
+    IGUAL           reduce using rule 20 (e -> ID .)
+    DIFERENTE       reduce using rule 20 (e -> ID .)
+    MAS             reduce using rule 20 (e -> ID .)
+    MENOS           reduce using rule 20 (e -> ID .)
+    POR             reduce using rule 20 (e -> ID .)
+    DIVIDIDO        reduce using rule 20 (e -> ID .)
+    AND             reduce using rule 20 (e -> ID .)
+    OR              reduce using rule 20 (e -> ID .)
+    $end            reduce using rule 20 (e -> ID .)
+    PARDER          reduce using rule 20 (e -> ID .)
+
+
+state 10
+
+    (21) e -> ENTERO .
+
+    MAYOR           reduce using rule 21 (e -> ENTERO .)
+    MENOR           reduce using rule 21 (e -> ENTERO .)
+    MAYORIGUAL      reduce using rule 21 (e -> ENTERO .)
+    MENORIGUAL      reduce using rule 21 (e -> ENTERO .)
+    IGUAL           reduce using rule 21 (e -> ENTERO .)
+    DIFERENTE       reduce using rule 21 (e -> ENTERO .)
+    MAS             reduce using rule 21 (e -> ENTERO .)
+    MENOS           reduce using rule 21 (e -> ENTERO .)
+    POR             reduce using rule 21 (e -> ENTERO .)
+    DIVIDIDO        reduce using rule 21 (e -> ENTERO .)
+    AND             reduce using rule 21 (e -> ENTERO .)
+    OR              reduce using rule 21 (e -> ENTERO .)
+    $end            reduce using rule 21 (e -> ENTERO .)
+    PARDER          reduce using rule 21 (e -> ENTERO .)
+
+
+state 11
+
+    (22) e -> DECIMAL .
+
+    MAYOR           reduce using rule 22 (e -> DECIMAL .)
+    MENOR           reduce using rule 22 (e -> DECIMAL .)
+    MAYORIGUAL      reduce using rule 22 (e -> DECIMAL .)
+    MENORIGUAL      reduce using rule 22 (e -> DECIMAL .)
+    IGUAL           reduce using rule 22 (e -> DECIMAL .)
+    DIFERENTE       reduce using rule 22 (e -> DECIMAL .)
+    MAS             reduce using rule 22 (e -> DECIMAL .)
+    MENOS           reduce using rule 22 (e -> DECIMAL .)
+    POR             reduce using rule 22 (e -> DECIMAL .)
+    DIVIDIDO        reduce using rule 22 (e -> DECIMAL .)
+    AND             reduce using rule 22 (e -> DECIMAL .)
+    OR              reduce using rule 22 (e -> DECIMAL .)
+    $end            reduce using rule 22 (e -> DECIMAL .)
+    PARDER          reduce using rule 22 (e -> DECIMAL .)
+
+
+state 12
+
+    (23) e -> PARIZQ . p PARDER
+    (2) p -> . p OR l
+    (3) p -> . l
+    (4) l -> . l AND n
+    (5) l -> . n
+    (6) n -> . NOT k
+    (7) n -> . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    NOT             shift and go to state 5
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    p                              shift and go to state 27
+    l                              shift and go to state 3
+    n                              shift and go to state 4
+    k                              shift and go to state 6
+    e                              shift and go to state 7
+
+state 13
+
+    (2) p -> p OR . l
+    (4) l -> . l AND n
+    (5) l -> . n
+    (6) n -> . NOT k
+    (7) n -> . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    NOT             shift and go to state 5
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    l                              shift and go to state 28
+    n                              shift and go to state 4
+    k                              shift and go to state 6
+    e                              shift and go to state 7
+
+state 14
+
+    (4) l -> l AND . n
+    (6) n -> . NOT k
+    (7) n -> . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    NOT             shift and go to state 5
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    n                              shift and go to state 29
+    k                              shift and go to state 6
+    e                              shift and go to state 7
+
+state 15
+
+    (6) n -> NOT k .
+
+    AND             reduce using rule 6 (n -> NOT k .)
+    OR              reduce using rule 6 (n -> NOT k .)
+    $end            reduce using rule 6 (n -> NOT k .)
+    PARDER          reduce using rule 6 (n -> NOT k .)
+
+
+state 16
+
+    (8) k -> e MAYOR . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 30
+
+state 17
+
+    (9) k -> e MENOR . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 31
+
+state 18
+
+    (10) k -> e MAYORIGUAL . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 32
+
+state 19
+
+    (11) k -> e MENORIGUAL . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 33
+
+state 20
+
+    (12) k -> e IGUAL . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 34
+
+state 21
+
+    (13) k -> e DIFERENTE . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 35
+
+state 22
+
+    (15) e -> e MAS . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 36
+
+state 23
+
+    (16) e -> e MENOS . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 37
+
+state 24
+
+    (17) e -> e POR . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 38
+
+state 25
+
+    (18) e -> e DIVIDIDO . e
+    (15) e -> . e MAS e
+    (16) e -> . e MENOS e
+    (17) e -> . e POR e
+    (18) e -> . e DIVIDIDO e
+    (19) e -> . MENOS e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . PARIZQ p PARDER
+
+    MENOS           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    PARIZQ          shift and go to state 12
+
+    e                              shift and go to state 39
+
+state 26
+
+    (19) e -> MENOS e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    MAYOR           reduce using rule 19 (e -> MENOS e .)
+    MENOR           reduce using rule 19 (e -> MENOS e .)
+    MAYORIGUAL      reduce using rule 19 (e -> MENOS e .)
+    MENORIGUAL      reduce using rule 19 (e -> MENOS e .)
+    IGUAL           reduce using rule 19 (e -> MENOS e .)
+    DIFERENTE       reduce using rule 19 (e -> MENOS e .)
+    MAS             reduce using rule 19 (e -> MENOS e .)
+    MENOS           reduce using rule 19 (e -> MENOS e .)
+    POR             reduce using rule 19 (e -> MENOS e .)
+    DIVIDIDO        reduce using rule 19 (e -> MENOS e .)
+    AND             reduce using rule 19 (e -> MENOS e .)
+    OR              reduce using rule 19 (e -> MENOS e .)
+    $end            reduce using rule 19 (e -> MENOS e .)
+    PARDER          reduce using rule 19 (e -> MENOS e .)
+
+  ! MAS             [ shift and go to state 22 ]
+  ! MENOS           [ shift and go to state 23 ]
+  ! POR             [ shift and go to state 24 ]
+  ! DIVIDIDO        [ shift and go to state 25 ]
+
+
+state 27
+
+    (23) e -> PARIZQ p . PARDER
+    (2) p -> p . OR l
+
+    PARDER          shift and go to state 40
+    OR              shift and go to state 13
+
+
+state 28
+
+    (2) p -> p OR l .
+    (4) l -> l . AND n
+
+    OR              reduce using rule 2 (p -> p OR l .)
+    $end            reduce using rule 2 (p -> p OR l .)
+    PARDER          reduce using rule 2 (p -> p OR l .)
+    AND             shift and go to state 14
+
+
+state 29
+
+    (4) l -> l AND n .
+
+    AND             reduce using rule 4 (l -> l AND n .)
+    OR              reduce using rule 4 (l -> l AND n .)
+    $end            reduce using rule 4 (l -> l AND n .)
+    PARDER          reduce using rule 4 (l -> l AND n .)
+
+
+state 30
+
+    (8) k -> e MAYOR e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    AND             reduce using rule 8 (k -> e MAYOR e .)
+    OR              reduce using rule 8 (k -> e MAYOR e .)
+    $end            reduce using rule 8 (k -> e MAYOR e .)
+    PARDER          reduce using rule 8 (k -> e MAYOR e .)
+    MAS             shift and go to state 22
+    MENOS           shift and go to state 23
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+
+state 31
+
+    (9) k -> e MENOR e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    AND             reduce using rule 9 (k -> e MENOR e .)
+    OR              reduce using rule 9 (k -> e MENOR e .)
+    $end            reduce using rule 9 (k -> e MENOR e .)
+    PARDER          reduce using rule 9 (k -> e MENOR e .)
+    MAS             shift and go to state 22
+    MENOS           shift and go to state 23
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+
+state 32
+
+    (10) k -> e MAYORIGUAL e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    AND             reduce using rule 10 (k -> e MAYORIGUAL e .)
+    OR              reduce using rule 10 (k -> e MAYORIGUAL e .)
+    $end            reduce using rule 10 (k -> e MAYORIGUAL e .)
+    PARDER          reduce using rule 10 (k -> e MAYORIGUAL e .)
+    MAS             shift and go to state 22
+    MENOS           shift and go to state 23
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+
+state 33
+
+    (11) k -> e MENORIGUAL e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    AND             reduce using rule 11 (k -> e MENORIGUAL e .)
+    OR              reduce using rule 11 (k -> e MENORIGUAL e .)
+    $end            reduce using rule 11 (k -> e MENORIGUAL e .)
+    PARDER          reduce using rule 11 (k -> e MENORIGUAL e .)
+    MAS             shift and go to state 22
+    MENOS           shift and go to state 23
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+
+state 34
+
+    (12) k -> e IGUAL e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    AND             reduce using rule 12 (k -> e IGUAL e .)
+    OR              reduce using rule 12 (k -> e IGUAL e .)
+    $end            reduce using rule 12 (k -> e IGUAL e .)
+    PARDER          reduce using rule 12 (k -> e IGUAL e .)
+    MAS             shift and go to state 22
+    MENOS           shift and go to state 23
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+
+state 35
+
+    (13) k -> e DIFERENTE e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    AND             reduce using rule 13 (k -> e DIFERENTE e .)
+    OR              reduce using rule 13 (k -> e DIFERENTE e .)
+    $end            reduce using rule 13 (k -> e DIFERENTE e .)
+    PARDER          reduce using rule 13 (k -> e DIFERENTE e .)
+    MAS             shift and go to state 22
+    MENOS           shift and go to state 23
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+
+state 36
+
+    (15) e -> e MAS e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    MAYOR           reduce using rule 15 (e -> e MAS e .)
+    MENOR           reduce using rule 15 (e -> e MAS e .)
+    MAYORIGUAL      reduce using rule 15 (e -> e MAS e .)
+    MENORIGUAL      reduce using rule 15 (e -> e MAS e .)
+    IGUAL           reduce using rule 15 (e -> e MAS e .)
+    DIFERENTE       reduce using rule 15 (e -> e MAS e .)
+    MAS             reduce using rule 15 (e -> e MAS e .)
+    MENOS           reduce using rule 15 (e -> e MAS e .)
+    AND             reduce using rule 15 (e -> e MAS e .)
+    OR              reduce using rule 15 (e -> e MAS e .)
+    $end            reduce using rule 15 (e -> e MAS e .)
+    PARDER          reduce using rule 15 (e -> e MAS e .)
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+  ! POR             [ reduce using rule 15 (e -> e MAS e .) ]
+  ! DIVIDIDO        [ reduce using rule 15 (e -> e MAS e .) ]
+  ! MAS             [ shift and go to state 22 ]
+  ! MENOS           [ shift and go to state 23 ]
+
+
+state 37
+
+    (16) e -> e MENOS e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    MAYOR           reduce using rule 16 (e -> e MENOS e .)
+    MENOR           reduce using rule 16 (e -> e MENOS e .)
+    MAYORIGUAL      reduce using rule 16 (e -> e MENOS e .)
+    MENORIGUAL      reduce using rule 16 (e -> e MENOS e .)
+    IGUAL           reduce using rule 16 (e -> e MENOS e .)
+    DIFERENTE       reduce using rule 16 (e -> e MENOS e .)
+    MAS             reduce using rule 16 (e -> e MENOS e .)
+    MENOS           reduce using rule 16 (e -> e MENOS e .)
+    AND             reduce using rule 16 (e -> e MENOS e .)
+    OR              reduce using rule 16 (e -> e MENOS e .)
+    $end            reduce using rule 16 (e -> e MENOS e .)
+    PARDER          reduce using rule 16 (e -> e MENOS e .)
+    POR             shift and go to state 24
+    DIVIDIDO        shift and go to state 25
+
+  ! POR             [ reduce using rule 16 (e -> e MENOS e .) ]
+  ! DIVIDIDO        [ reduce using rule 16 (e -> e MENOS e .) ]
+  ! MAS             [ shift and go to state 22 ]
+  ! MENOS           [ shift and go to state 23 ]
+
+
+state 38
+
+    (17) e -> e POR e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    MAYOR           reduce using rule 17 (e -> e POR e .)
+    MENOR           reduce using rule 17 (e -> e POR e .)
+    MAYORIGUAL      reduce using rule 17 (e -> e POR e .)
+    MENORIGUAL      reduce using rule 17 (e -> e POR e .)
+    IGUAL           reduce using rule 17 (e -> e POR e .)
+    DIFERENTE       reduce using rule 17 (e -> e POR e .)
+    MAS             reduce using rule 17 (e -> e POR e .)
+    MENOS           reduce using rule 17 (e -> e POR e .)
+    POR             reduce using rule 17 (e -> e POR e .)
+    DIVIDIDO        reduce using rule 17 (e -> e POR e .)
+    AND             reduce using rule 17 (e -> e POR e .)
+    OR              reduce using rule 17 (e -> e POR e .)
+    $end            reduce using rule 17 (e -> e POR e .)
+    PARDER          reduce using rule 17 (e -> e POR e .)
+
+  ! MAS             [ shift and go to state 22 ]
+  ! MENOS           [ shift and go to state 23 ]
+  ! POR             [ shift and go to state 24 ]
+  ! DIVIDIDO        [ shift and go to state 25 ]
+
+
+state 39
+
+    (18) e -> e DIVIDIDO e .
+    (15) e -> e . MAS e
+    (16) e -> e . MENOS e
+    (17) e -> e . POR e
+    (18) e -> e . DIVIDIDO e
+
+    MAYOR           reduce using rule 18 (e -> e DIVIDIDO e .)
+    MENOR           reduce using rule 18 (e -> e DIVIDIDO e .)
+    MAYORIGUAL      reduce using rule 18 (e -> e DIVIDIDO e .)
+    MENORIGUAL      reduce using rule 18 (e -> e DIVIDIDO e .)
+    IGUAL           reduce using rule 18 (e -> e DIVIDIDO e .)
+    DIFERENTE       reduce using rule 18 (e -> e DIVIDIDO e .)
+    MAS             reduce using rule 18 (e -> e DIVIDIDO e .)
+    MENOS           reduce using rule 18 (e -> e DIVIDIDO e .)
+    POR             reduce using rule 18 (e -> e DIVIDIDO e .)
+    DIVIDIDO        reduce using rule 18 (e -> e DIVIDIDO e .)
+    AND             reduce using rule 18 (e -> e DIVIDIDO e .)
+    OR              reduce using rule 18 (e -> e DIVIDIDO e .)
+    $end            reduce using rule 18 (e -> e DIVIDIDO e .)
+    PARDER          reduce using rule 18 (e -> e DIVIDIDO e .)
+
+  ! MAS             [ shift and go to state 22 ]
+  ! MENOS           [ shift and go to state 23 ]
+  ! POR             [ shift and go to state 24 ]
+  ! DIVIDIDO        [ shift and go to state 25 ]
+
+
+state 40
+
+    (23) e -> PARIZQ p PARDER .
+
+    MAYOR           reduce using rule 23 (e -> PARIZQ p PARDER .)
+    MENOR           reduce using rule 23 (e -> PARIZQ p PARDER .)
+    MAYORIGUAL      reduce using rule 23 (e -> PARIZQ p PARDER .)
+    MENORIGUAL      reduce using rule 23 (e -> PARIZQ p PARDER .)
+    IGUAL           reduce using rule 23 (e -> PARIZQ p PARDER .)
+    DIFERENTE       reduce using rule 23 (e -> PARIZQ p PARDER .)
+    MAS             reduce using rule 23 (e -> PARIZQ p PARDER .)
+    MENOS           reduce using rule 23 (e -> PARIZQ p PARDER .)
+    POR             reduce using rule 23 (e -> PARIZQ p PARDER .)
+    DIVIDIDO        reduce using rule 23 (e -> PARIZQ p PARDER .)
+    AND             reduce using rule 23 (e -> PARIZQ p PARDER .)
+    OR              reduce using rule 23 (e -> PARIZQ p PARDER .)
+    $end            reduce using rule 23 (e -> PARIZQ p PARDER .)
+    PARDER          reduce using rule 23 (e -> PARIZQ p PARDER .)
+
