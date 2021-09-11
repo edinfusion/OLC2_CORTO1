@@ -34,7 +34,7 @@ def t_ID(t):
 
 
 # caracteres ignorados
-t_ignore = "\t"
+t_ignore = " \t"
 
 
 def t_newline(t):
@@ -84,7 +84,7 @@ def p_E(t):
 
     if t[2] == '+':
         Etemp = new_temp()
-        Ec3d = str(t[1].c3d)+str(t[3].c3d)+str(Etemp)+"="+str(t[1].tmp)+"+"+str(t[3].tmp+"\n")
+        Ec3d = str(t[1].c3d)+str(t[3].c3d)+ str(Etemp)+"="+str(t[1].tmp)+"+"+str(t[3].tmp+"\n")
         t[0] = Informacion(str(Etemp),str(Ec3d))
     
     elif t[2] == '-':
@@ -131,6 +131,6 @@ def p_error(t):
 
 parser = yacc.yacc()
 
-entrada = "a+b+c/z"
+entrada = "a+b+c/d*c"
 
 parser.parse(entrada)
